@@ -40,7 +40,7 @@ module DumpToSeeds::BaseExt
 
   def build_simple_rb(obj, do_create = true)
     attrs = obj.attributes
-    attrs.delete(:id)
+    attrs.delete('id')
     attrs = Hash[attrs.to_a.map{|a1,a2| [a1, a2.to_s] }]
     "#{obj.class.name}.#{do_create ? 'create' : 'new'}(#{attrs.inspect})"
   end
